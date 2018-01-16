@@ -1,5 +1,7 @@
 # GorillaChat
 
+## Exercise
+
 Client Server Model Programming exercise
 
 version 1.0
@@ -30,5 +32,5 @@ id        | output | 1               | after a write request the id of the inser
 value     | input  | “hello”         |
 
 # Also See
-This document is in Markdown format:
+This document is written in Markdown format:
 https://guides.github.com/features/mastering-markdown/
