@@ -21,12 +21,13 @@ http://localhost/read_write/api.php?action=write&mykey=12345&value=how%20are%20y
 
 http://localhost/read_write/api.php?action=read&mykey=12345&id=13
 
------- | ------ | --------------- | ------------
-action | input  | “read”, “write” | string value
-mykey  | input  | “12345”         | create your own key to separate your messages from other students messages
-id     | input  | 1               | every message has its own unique id. You can request a message by its id. This id is returned for each write request
-id     | output | 1               | after a write request the id of the inserted message is returned
-value  | input  | “hello”
+Parameter | In/out | Examples        | Description
+--------- | ------ | --------------- | -----------
+action    | input  | “read”, “write” | string value
+mykey     | input  | “12345”         | create your own key to separate your messages from other students messages
+id        | input  | 1               | every message has its own unique id. You can request a message by its id. This id is returned for each write request
+id        | output | 1               | after a write request the id of the inserted message is returned
+value     | input  | “hello”         |
 
 # Also See
 This document is in Markdown format:
