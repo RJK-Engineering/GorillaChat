@@ -31,6 +31,11 @@ id        | input  | 1               | every message has its own unique id. You 
 id        | output | 1               | after a write request the id of the inserted message is returned
 value     | input  | “hello”         |
 
+## Extended API
+
 # Also See
 This document is written in Markdown format:
 https://guides.github.com/features/mastering-markdown/
+
+About CORS (cross domain xml http requests):
+https://stackoverflow.com/questions/22143250/xmlhttprequest-cross-domain#22143384

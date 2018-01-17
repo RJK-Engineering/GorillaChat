@@ -1,5 +1,11 @@
 <?php
 
+// allow cross domain requests
+header('Access-Control-Allow-Origin: *');
+// this script returns JSON
+header('Content-Type: application/json');
+
+// determine action, throw exception on error
 if (! isset($_GET['action'])) {
     throw new Exception("Url parameter not set: action");
 } else if ($_GET['action'] == 'read') {
@@ -13,14 +19,17 @@ if (! isset($_GET['action'])) {
 function GetMessage($id) {
     $db = DbConnect();
 
-    $sql = "select value from messages where id=:id";
+    $sql = "select * from messages where id=:id";
     $statement = $db->prepare($sql);
     $statement->execute(array(
         ':id' => $id
     ));
-    $row = $statement->fetch();
+    // fetch column name to value hash
+    $row = $statement->fetch(PDO::FETCH_ASSOC);
 
-    echo $row['value'];
+    // JSON_NUMERIC_CHECK converts numeric strings to numbers
+    // See: https://stackoverflow.com/questions/11128823/how-to-properly-format-pdo-results-numeric-results-returned-as-string
+    echo json_encode($row, JSON_NUMERIC_CHECK);
 }
 
 function WriteMessage($mykey, $value) {
