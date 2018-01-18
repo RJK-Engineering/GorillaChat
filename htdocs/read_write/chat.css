@@ -3,11 +3,20 @@
     height: 200px;
     overflow-x: hidden; /* Hide horizontal scrollbar */
     overflow-y: scroll; /* Add vertical scrollbar */
+    margin: 10px 0px;
 }
 
 #sending {
-    /* display sending element next to message input field */
+    /* display sending element next to message input element */
     display: inline-block;
+}
+
+#value {
+    width: 100%;
+}
+
+label {
+    font-weight: bold;
 }
 
 .userName {
@@ -22,7 +31,7 @@
 
 .warning {
     font-weight: bold;
-    color: green;
+    color: orange;
 }
 
 .error {
