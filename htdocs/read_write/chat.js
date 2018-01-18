@@ -2,7 +2,7 @@
 window.addEvent('domready', function() {
     AddEvents();
     SetUsername('Anonymous');
-    // schedule poll
+    // schedule first poll
     setTimeout(GetNextMessage, pollingInterval);
 });
 
@@ -49,16 +49,16 @@ function ExecuteCommand(msg) {
         } else if (cmd == 'reset') {
             $$('#messages').set('text', '');
         } else {
-            DisplayErrorMessage("Invalid command: " + cmd);
+            DisplaySystemMessage("Invalid command: " + cmd, 'error');
         }
     } else {
-        DisplayErrorMessage("Error processing command");
+        DisplaySystemMessage("Error processing command", 'error');
     }
 }
 
 function SetUsername(name) {
     if (! name) {
-        DisplayErrorMessage("No name provided");
+        DisplaySystemMessage("No name provided", 'error');
         return;
     }
     userName = name;
@@ -68,7 +68,7 @@ function SetUsername(name) {
 
 function SendMessage(message) {
     if (! message) {
-        DisplayErrorMessage("You didn't type anything!");
+        DisplaySystemMessage("You didn't type anything!", 'warning');
         return;
     }
     writeRequest.get({
@@ -103,8 +103,9 @@ function DisplayMessage(userName, message) {
     );
 }
 
-function DisplayErrorMessage(message) {
-    Display('<span class="error">' + message + '</span><br>');
+function DisplaySystemMessage(message, style) {
+    if (! style) { style = 'info' }
+    Display('<span class="' + style + '">' + message + '</span><br>');
 }
 
 function Display(html) {
@@ -126,7 +127,7 @@ var writeRequest = new Request.JSON({
         $$('#sending').set('text', '');
     },
     onFailure: function() {
-        DisplayErrorMessage("Error sending message, please try again");
+        DisplaySystemMessage("Error sending message, please try again", 'error');
         $$('#sending').set('text', '');
     }
 });
@@ -151,13 +152,15 @@ var listRequest = new Request.JSON({
     onSuccess: function(messages, text) {
         $$('#sending').set('text', '');
         if (messages) {
+            DisplaySystemMessage('-- list start --');
             messages.each(function (msg) {
                 DisplayMessage(msg.mykey, msg.value);
             });
+            DisplaySystemMessage('-- list end --');
         }
     },
     onFailure: function() {
-        DisplayErrorMessage("Error sending command, please try again");
+        DisplaySystemMessage("Error sending command, please try again", 'error');
         $$('#sending').set('text', '');
     }
 });
