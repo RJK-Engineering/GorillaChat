@@ -123,8 +123,8 @@ var writeRequest = new Request.JSON({
         $$('#value').set('value', '');
         $$('#sending').set('text', 'sending...');
     },
-    onSuccess: function(json, text) {
-        nextId = parseInt(json) +  1;
+    onSuccess: function(id) {
+        nextId = parseInt(id) +  1;
         $$('#sending').set('text', '');
     },
     onFailure: function() {
@@ -136,10 +136,10 @@ var writeRequest = new Request.JSON({
 var readRequest = new Request.JSON({
     url: apiUrl,
     method: 'get',
-    onSuccess: function(json, text) {
-        if (json) {
-            DisplayMessage(json.mykey, json.value);
-            nextId = parseInt(json.id) + 1;
+    onSuccess: function(message) {
+        if (message) {
+            DisplayMessage(message.mykey, message.value);
+            nextId = parseInt(message.id) + 1;
         }
     }
 });
@@ -150,10 +150,10 @@ var listRequest = new Request.JSON({
     onRequest: function() {
         $$('#sending').set('text', 'sending...');
     },
-    onSuccess: function(json, text) {
+    onSuccess: function(messages, text) {
         $$('#sending').set('text', '');
-        if (json) {
-            json.each(function (msg) {
+        if (messages) {
+            messages.each(function (msg) {
                 DisplayMessage(msg.mykey, msg.value);
             });
         }
