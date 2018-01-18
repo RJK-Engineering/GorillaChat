@@ -32,7 +32,7 @@ value     | input  | “hello”         |
 
 The list action retrieves a list of recently posted messages:
 
-http://localhost/read_write/api.php?action=list&limit=10
+* http://localhost/read_write/api.php?action=list&limit=10
 
 ## Extended Functionality
 
