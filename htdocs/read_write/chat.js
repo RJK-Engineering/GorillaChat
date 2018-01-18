@@ -1,9 +1,7 @@
 // MooTools domready function
 window.addEvent('domready', function() {
     AddEvents();
-    ListMessages();
     SetUsername('Anonymous');
-
     // schedule poll
     setTimeout(GetNextMessage, pollingInterval);
 });
