@@ -33,6 +33,17 @@ value     | input  | “hello”         |
 
 ## Extended API
 
+The list action retrieves a list of recently posted messages:
+
+http://localhost/read_write/api.php?action=list&limit=10
+
+## Extended Functionality
+
+The chat supports the following special commands:
+* .list [nr] - Show last [nr] messages (default 10)
+* .name [name] - Change your name
+* .reset - Clear the chat window
+
 # Also See
 This document is written in Markdown format:
 https://guides.github.com/features/mastering-markdown/
