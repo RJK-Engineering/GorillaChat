@@ -10,11 +10,21 @@
 </head>
 <body>
 
-<div id="messages">
-</div>
+Name: <input type="text" name="name" id="mykey"><br>
+<div id="messages"></div>
 
-User: <input type="text" name="mykey" id="mykey"><br>
-Message: <input type="text" name="value" id="value"><br>
+Message: <input type="text" name="value" id="value">
+<div id="sending"></div>
+<br>
+<br>
+
+<h4>Commands</h4>
+The following commands are available in the chat:
+<ul>
+    <li>.list [nr] - Show last [nr] messages (default 10)</li>
+    <li>.name [name] - Change your name</li>
+    <li>.reset - Clear the chat window</li>
+</ul>
 
 </body>
 </html>
