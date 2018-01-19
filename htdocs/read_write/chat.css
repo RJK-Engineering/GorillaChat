@@ -4,11 +4,11 @@
     overflow-x: hidden; /* Hide horizontal scrollbar */
     overflow-y: scroll; /* Add vertical scrollbar */
     margin: 10px 0px;
+    word-wrap: break-word;
 }
 
 #sending {
-    /* display sending element next to message input element */
-    display: inline-block;
+    height: 30px;
 }
 
 #value {
