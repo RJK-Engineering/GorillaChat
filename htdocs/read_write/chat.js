@@ -9,7 +9,8 @@ window.addEvent('domready', function() {
 /* CONFIGURATION */
 // var apiUrl = 'http://www.codegorilla.nl/read_write/api.php';
 // var apiUrl = 'http://10.11.13.231/read_write/api.php';
-var apiUrl = 'http://localhost/read_write/api.php';
+// var apiUrl = 'http://localhost/read_write/api.php';
+var apiUrl = 'http://82.72.124.186/read_write/api.php';
 var pollingInterval = 2000; // delay (in ms) before polling for next message
 var defaultListSize = 10;
 
